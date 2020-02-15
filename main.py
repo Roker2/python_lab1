@@ -31,11 +31,11 @@ def partition_H(data, left, right):
         data[i], data[j] = data[j], data[i]
 
 
-def sort(data, left, right):
+def quicksort(data, left, right):
     if left < right:
         p = partition_H(data, left, right)
-        sort(data, left, p)
-        sort(data, p + 1, right)
+        quicksort(data, left, p)
+        quicksort(data, p + 1, right)
 
 
 if __name__ == '__main__':
@@ -99,5 +99,5 @@ if __name__ == '__main__':
         for value in string.split():
             mas.append(int(value))
         print(mas)
-        sort(mas, 0, len(mas) - 1)
+        quicksort(mas, 0, len(mas) - 1)
         print(mas)
