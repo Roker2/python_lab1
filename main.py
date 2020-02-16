@@ -51,13 +51,11 @@ def merge(left_data, right_data):
                 sorted_data.append(right_data[right_index])
                 right_index += 1
         elif left_index == len(left_data):
-            for value in right_data[right_data:]:
-                sorted_data.append(value)
-            break
+            sorted_data.append(right_data[right_index])
+            right_index += 1
         elif right_index == len(right_data):
-            for value in left_data[left_index:]:
-                sorted_data.append(value)
-            break
+            sorted_data.append(left_data[left_index])
+            left_index += 1
     return sorted_data
 
 
