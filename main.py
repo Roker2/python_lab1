@@ -71,13 +71,14 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', type=str, help='Type program: one, two')
     parser.add_argument('--file', type=str, help='Path to file')
+    parser.add_argument('--number', type=int, help='Number of Fibonacci number')
     # print(parser.parse_args())
 
     if not vars(parser.parse_args())['type']:
         print('You didn\'t choose program type')
         sys.exit()
 
-    if not vars(parser.parse_args())['file']:
+    if (not vars(parser.parse_args())['file']) & (not vars(parser.parse_args())['type'] == 'five'):
         print('You didn\'t choose file')
         sys.exit()
 
@@ -141,3 +142,21 @@ if __name__ == '__main__':
             mas.append(int(value))
         print(mas)
         print(merge_sort(mas))
+
+    if vars(parser.parse_args())['type'] == 'five':
+        if vars(parser.parse_args())['number'] == 1:
+            print(0)
+            sys.exit()
+        elif (vars(parser.parse_args())['number'] == 2) | (vars(parser.parse_args())['number'] == 3):
+            print(1)
+            sys.exit()
+        integer1 = 0
+        integer2 = 1
+        print(0)
+        for i in range(0, vars(parser.parse_args())['number'] - 1):
+            if i % 2 == 1:
+                integer1 = integer1 + integer2
+                print(integer1)
+            else:
+                integer2 = integer1 + integer2
+                print(integer2)
