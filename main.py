@@ -87,9 +87,13 @@ if __name__ == '__main__':
         sys.exit()
 
     if (vars(parser.parse_args())['type'] == 'one') | (vars(parser.parse_args())['type'] == 'two'):
-        file = open(vars(parser.parse_args())['file'], 'r')
-        string = file.read()
-        file.close()
+        try:
+            file = open(vars(parser.parse_args())['file'], 'r')
+            string = file.read()
+            file.close()
+        except:
+            print("File is not exist.")
+            sys.exit()
         string = string.replace('!', '')
         string = string.replace('?', '')
         string = string.replace('.', '')
@@ -122,9 +126,13 @@ if __name__ == '__main__':
         print(string)
 
     if vars(parser.parse_args())['type'] == 'three':
-        file = open(vars(parser.parse_args())['file'], 'r')
-        string = file.read()
-        file.close()
+        try:
+            file = open(vars(parser.parse_args())['file'], 'r')
+            string = file.read()
+            file.close()
+        except:
+            print("File is not exist.")
+            sys.exit()
         mas = []
         for value in string.split():
             mas.append(int(value))
@@ -134,9 +142,13 @@ if __name__ == '__main__':
     # print(mas[:(len(mas) // 2)])
 
     if vars(parser.parse_args())['type'] == 'four':
-        file = open(vars(parser.parse_args())['file'], 'r')
-        string = file.read()
-        file.close()
+        try:
+            file = open(vars(parser.parse_args())['file'], 'r')
+            string = file.read()
+            file.close()
+        except:
+            print("File is not exist.")
+            sys.exit()
         mas = []
         for value in string.split():
             mas.append(int(value))
