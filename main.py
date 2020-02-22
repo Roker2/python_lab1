@@ -89,20 +89,20 @@ if __name__ == '__main__':
     if (vars(parser.parse_args())['type'] == 'one') | (vars(parser.parse_args())['type'] == 'two'):
         try:
             file = open(vars(parser.parse_args())['file'], 'r')
-            string = file.read()
+            text = file.read()
             file.close()
         except:
             print("File is not exist.")
             sys.exit()
-        string = string.replace('!', '')
-        string = string.replace('?', '')
-        string = string.replace('.', '')
-        string = string.replace(',', '')
-        string = string.replace(':', '')
-        string = string.replace(';', '')
+        text = text.replace('!', '')
+        text = text.replace('?', '')
+        text = text.replace('.', '')
+        text = text.replace(',', '')
+        text = text.replace(':', '')
+        text = text.replace(';', '')
         # string = string.lower()
         MyDictionary = {}
-        for word in string.split():
+        for word in text.split():
             if word in MyDictionary.keys():
                 MyDictionary[word] += 1
             else:
@@ -115,26 +115,26 @@ if __name__ == '__main__':
             if value > maximum:
                 maximum = value
         #    print(maximum)
-        string = ''
-        while (len(string.split()) != 10) & (maximum != 0):
+        text = ''
+        while (len(text.split()) != 10) & (maximum != 0):
             for word in MyDictionary.keys():
                 if MyDictionary[word] == maximum:
-                    string += word + ' '
-                if len(string.split()) == 10:
+                    text += word + ' '
+                if len(text.split()) == 10:
                     break
             maximum -= 1
-        print(string)
+        print(text)
 
     if vars(parser.parse_args())['type'] == 'three':
         try:
             file = open(vars(parser.parse_args())['file'], 'r')
-            string = file.read()
+            text = file.read()
             file.close()
         except:
             print("File is not exist.")
             sys.exit()
         mas = []
-        for value in string.split():
+        for value in text.split():
             mas.append(int(value))
         print(mas)
         quicksort(mas, 0, len(mas) - 1)
@@ -144,13 +144,13 @@ if __name__ == '__main__':
     if vars(parser.parse_args())['type'] == 'four':
         try:
             file = open(vars(parser.parse_args())['file'], 'r')
-            string = file.read()
+            text = file.read()
             file.close()
         except:
             print("File is not exist.")
             sys.exit()
         mas = []
-        for value in string.split():
+        for value in text.split():
             mas.append(int(value))
         print(mas)
         print(merge_sort(mas))
