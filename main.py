@@ -1,5 +1,6 @@
 import argparse
 import sys
+import string
 
 
 # Разбиение Ломута
@@ -94,12 +95,8 @@ if __name__ == '__main__':
         except:
             print("File is not exist.")
             sys.exit()
-        text = text.replace('!', '')
-        text = text.replace('?', '')
-        text = text.replace('.', '')
-        text = text.replace(',', '')
-        text = text.replace(':', '')
-        text = text.replace(';', '')
+        for symbol in string.punctuation:
+            text = text.replace(symbol, '')
         # string = string.lower()
         MyDictionary = {}
         for word in text.split():
